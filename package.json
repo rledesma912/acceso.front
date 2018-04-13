@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "sitio de administracion de la plataforma",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "babel-node src/server.js --presets es2015",
     "build": "webpack --mode=production",
     "otracosa": "webpack --mode=development -p && webpack-dev-server"
   },
@@ -26,8 +26,10 @@
   },
   "devDependencies": {
     "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
     "css-loader": "^0.28.11",
     "vue": "^2.5.16",
     "vue-axios": "^2.1.1",

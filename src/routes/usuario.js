@@ -2,24 +2,27 @@
 const Express = require('express');
 const Router = Express.Router();
 const Usuario = require('../models/usuario');
-const Axios = require('axios');
 
-//esto debe ir en algun config
-var URL = "http://localhost:5000"
+import UsuarioSrv from '../services/UsuarioService';
 
-Router.get('/combo', (req, res) => {
+// Router.get('/combo', (req, res) => {
+//   // res.json({    mensaje: 'éxito'  })
+//   //res.json(UsuarioSrv.register());
+//   let papa = async () => {
+//     console.log(UsuarioSrv.register());
+//   };
+//
+//   papa();
+//
+// });
 
-   //res.json({ mensaje: 'éxito'})
+Router.get('/combo', (req, res, next) => {
 
-  Axios.get(URL + '/usuarios/combo')
-    .then(function(response) {
-      res.send(response.data);
-    })
-    .catch(function(err) {
-      res.send(err.response.data);
-      // console.log(err.response.data);
-    })
+  UsuarioSrv.register().then(data => {
+    console.log('2');
+    res.json(data);
+  })
 
-});
+})
 
 module.exports = Router;
